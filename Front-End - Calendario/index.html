@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li class="prev" onclick="previous()">&#10094;</li>
+            <li class="next" onclick="next()">&#10095;</li>
+            <li id="mesAnio"></li>
+        </ul>
+        <table class="container-calendario">
+            <thead class="dias">
+                <tr> 
+                    <th>Dom</th>
+                    <th>Lun</th>
+                    <th>Mar</th>
+                    <th>Mie</th>
+                    <th>Jue</th>
+                    <th>Vie</th>
+                    <th>Sab</th>
+                </tr>
+            </thead>
+            <tbody id="calendar">
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="funciones.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</body>
+</html>

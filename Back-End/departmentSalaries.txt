@@ -1,0 +1,4 @@
+SELECT d.dept_id, COUNT(*), SUM(salary) FROM department as d 
+INNER JOIN employee AS emp ON d.dept_id = emp.dept_id 
+GROUP BY d.dept_id
+ORDER BY d.dept_id ASC

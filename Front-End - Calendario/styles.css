@@ -1,0 +1,88 @@
+ul {list-style-type: none;}
+
+.container-calendario{
+    width: 100%;
+}
+
+.container {
+    background: #6BA7EC;
+    text-align: center;
+    max-width: 50%;
+    overflow: auto;
+}
+  
+    .container ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container ul li {
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    .container .prev {
+        float: left;
+        padding-top: 1%;
+        cursor: pointer;
+    }
+  
+    .container .next {
+        float: right;
+        padding-top: 1%;
+        cursor: pointer;
+    }
+  
+    .container .prev {
+        float: left;
+        padding-top: 1%;
+    }
+  
+
+    .container .next {
+        float: right;
+        padding-top: 1%;
+    }
+  
+
+    .dias {
+        margin: 0;
+        padding: 1% 0;
+        background-color: #ddd;
+    }
+  
+    .dias li {
+        display: inline-block;
+        width: 13.6%;
+        color: #666;
+        text-align: center;
+    }
+  
+    #calendar {
+        padding: 1% 0;
+        background: #eee;
+        margin: 0;
+    }
+  
+    #calendar td {
+        list-style-type: none;
+        width: 13.6%;
+        text-align: center;
+        margin-bottom: 2%;
+        font-size:12px;
+        color: #777;
+        border-radius: 2px;
+    }
+  
+    .active {
+        background:#6BA7EC ;
+        color: white !important;
+        border: 1px solid black;
+    }
+
+    .feriado {
+        background: #EC6B6F;
+        color: white  !important
+    }
