@@ -6,6 +6,7 @@ var feriados;
 mesAnio = document.getElementById("mesAnio");
 var index = 0;
 
+// recibe el JSON con los feriados
 const getJSON = function(url) {
     return new Promise(function(resolve, reject) {
       const xhr = new XMLHttpRequest()
@@ -27,13 +28,12 @@ const getJSON = function(url) {
     })
   }
   
+// una vez recibido el json se renderiza el calendario
   getJSON('http://nolaborables.com.ar/api/v2/feriados/2019').then(feriados => {
     mostrarCalendario(esteMes, esteAnio, feriados);
   })
 
-// getJSON.);
-
-
+// adelanta un mes, y el año de ser necesario
 function next() {
     esteAnio = (esteMes === 11) ? esteAnio + 1 : esteAnio;
     esteMes = (esteMes + 1) % 12;
@@ -41,6 +41,7 @@ function next() {
     mostrarCalendario(esteMes, esteAnio, feriados);})
 }
 
+// retrocede un mes, y el año de ser necesario
 function previous() {
     esteAnio = (esteMes === 0) ? esteAnio - 1 : esteAnio;
     esteMes = (esteMes === 0) ? 11 : esteMes - 1;
@@ -97,7 +98,7 @@ function mostrarCalendario(mes, anio, feriados) {
                 fecha++;
             }    
         }
-        // se agregan todos los elementos al cuerpo del calendario
+        // se agregan todos los elementos al cuerpo del calendario y se renderiza
         cuerpoCalendario.appendChild(row); 
     }
 
@@ -105,7 +106,7 @@ function mostrarCalendario(mes, anio, feriados) {
 }
 
 
-// determina cuantos dias tiene un mes https://dzone.com/articles/determining-number-days-month
+// determina cuantos dias tiene un mes 
 function diasMes(iMes, iAnio) {
     return 32 - new Date(iAnio, iMes, 32).getDate();
 }
