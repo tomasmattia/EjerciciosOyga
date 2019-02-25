@@ -27,7 +27,7 @@ const getJSON = function(url) {
       xhr.send()
     })
   }
-  
+  document.getElementById('sinFeriados').style.opacity="0";
 // una vez recibido el json se renderiza el calendario
   getJSON('http://nolaborables.com.ar/api/v2/feriados/2019').then(feriados => {
     mostrarCalendario(esteMes, esteAnio, feriados);
@@ -35,18 +35,38 @@ const getJSON = function(url) {
 
 // adelanta un mes, y el año de ser necesario
 function next() {
+
     esteAnio = (esteMes === 11) ? esteAnio + 1 : esteAnio;
     esteMes = (esteMes + 1) % 12;
-    getJSON(`http://nolaborables.com.ar/api/v2/feriados/${esteAnio}`).then(feriados => {
-    mostrarCalendario(esteMes, esteAnio, feriados);})
+    if(esteAnio>2019)
+    {
+      feriados="";
+      mostrarCalendario(esteMes, esteAnio, feriados);
+      document.getElementById('sinFeriados').style.opacity="1";
+    }
+    else{
+      getJSON(`http://nolaborables.com.ar/api/v2/feriados/${esteAnio}`).then(feriados => {
+      mostrarCalendario(esteMes, esteAnio, feriados);})
+      document.getElementById('sinFeriados').style.opacity="0";
+    }
+    
 }
 
 // retrocede un mes, y el año de ser necesario
 function previous() {
     esteAnio = (esteMes === 0) ? esteAnio - 1 : esteAnio;
     esteMes = (esteMes === 0) ? 11 : esteMes - 1;
-    getJSON(`http://nolaborables.com.ar/api/v2/feriados/${esteAnio}`).then(feriados => {
-    mostrarCalendario(esteMes, esteAnio, feriados);})
+    if(esteAnio<=2019)
+    {
+      getJSON(`http://nolaborables.com.ar/api/v2/feriados/${esteAnio}`).then(feriados => {
+      mostrarCalendario(esteMes, esteAnio, feriados);})
+      document.getElementById('sinFeriados').style.opacity="0";
+    }
+    else{
+      feriados="";
+      mostrarCalendario(esteMes, esteAnio, feriados);
+      document.getElementById('sinFeriados').style.opacity="1";
+    }
 }
 
 

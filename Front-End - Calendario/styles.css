@@ -86,3 +86,10 @@ ul {list-style-type: none;}
         background: #EC6B6F;
         color: white  !important
     }
+
+    #sinFeriados{
+        padding: 20px;
+        background-color: #f44336; /* Red */
+        color: white;
+        opacity: "0";
+    }
